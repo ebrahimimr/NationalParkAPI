@@ -40,9 +40,15 @@ namespace ParkyAPI
             //add auto mapper
             services.AddAutoMapper(typeof(ParkyMappings));
 
+            //add swagger
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("ParkyOpenAPISpec",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    { Title = "ParkyAPI", Version = "1" });
+            });
             services.AddControllers();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -53,6 +59,18 @@ namespace ParkyAPI
 
             app.UseHttpsRedirection();
 
+            // add swagger and use this url fo see json value
+            //https://localhost:44346/swagger/ParkyOpenAPISpec/swagger.json
+            app.UseSwagger();
+
+            // add for UI View
+
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/ParkyOpenAPISpec/swagger.json", "Parky API");
+                //add for set swagger open as default 
+                options.RoutePrefix = "";
+            });
             app.UseRouting();
 
             app.UseAuthorization();
