@@ -47,7 +47,23 @@ namespace ParkyAPI
             {
                 options.SwaggerDoc("ParkyOpenAPISpec",
                     new Microsoft.OpenApi.Models.OpenApiInfo()
-                    { Title = "ParkyAPI", Version = "1" });
+                    {
+                        Title = "ParkyAPI",
+                        Version = "1",
+                        Description = "Udemy Parky API",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                        {
+                            Email = "Ebrahimi.mr@gmail.com",
+                            Name = "MohammadReza Ebrahimi",
+                            Url = new Uri("http://www.MreOnline.com"),
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense
+                        {
+                            Name = "MIT License",
+                            Url = new Uri("https://en.wikipedia.org/wiki/MIT_License")
+                        }
+
+                    }); ;
                 //add this code for automatic load document from xml in swagger
                 var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
