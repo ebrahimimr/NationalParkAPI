@@ -24,6 +24,14 @@ namespace ParkyAPI.Controllers
             _mapper = mapper;
         }
 
+        //for create xml from document Active "XML Documention File"
+        //in Build tab from project properties
+        //and delete absolote address to just file name
+
+        /// <summary>
+        /// Get list of national park
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetNationalParks()
         {
@@ -37,6 +45,12 @@ namespace ParkyAPI.Controllers
             return Ok(objDto);
         }
 
+
+        /// <summary>
+        /// Get Individual national park
+        /// </summary>
+        /// <param name="nationalParkId">The Id of national park</param>
+        /// <returns></returns>
         [HttpGet("{nationalParkId:int}",  Name = "GetNationalPark")]
         public IActionResult GetNationalPark(int nationalParkId)
         {

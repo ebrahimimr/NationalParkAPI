@@ -16,6 +16,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using ParkyAPI.ParkyMapper;
+using System.Reflection;
+using System.IO;
 
 namespace ParkyAPI
 {
@@ -46,6 +48,11 @@ namespace ParkyAPI
                 options.SwaggerDoc("ParkyOpenAPISpec",
                     new Microsoft.OpenApi.Models.OpenApiInfo()
                     { Title = "ParkyAPI", Version = "1" });
+                //add this code for automatic load document from xml in swagger
+                var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
+                options.IncludeXmlComments(xmlCommentFullPath);
+
             });
             services.AddControllers();
         }
