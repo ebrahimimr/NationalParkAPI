@@ -28,6 +28,10 @@ namespace ParkyAPI.Controllers
         //in Build tab from project properties
         //and delete absolote address to just file name
 
+        //for disable missing xmlcomment warning from other .... 
+        //in Treat warning as error in Build tab from project properties
+        //add warning code 1591 to specific warnings
+
         /// <summary>
         /// Get list of national park
         /// </summary>
