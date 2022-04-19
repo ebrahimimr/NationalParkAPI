@@ -119,7 +119,7 @@ namespace ParkyAPI.Controllers
             return CreatedAtRoute("GetNationalPark", new { nationalParkId = nationalparkObj.Id }, nationalparkObj);
         }
 
-        [HttpPatch("{nationalParkId:int}", Name = "GetNationalPark")]
+        [HttpPatch("{nationalParkId:int}", Name = "UpdateNationalPark")]
         [ProducesResponseType(204)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

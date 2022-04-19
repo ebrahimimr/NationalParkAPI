@@ -38,6 +38,7 @@ namespace ParkyAPI
 
             //add for access NationalParkRepository methos from any controller repsitory pattern
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
+            services.AddScoped<ITrailRepository, TrailRepository>();
 
             //add auto mapper
             services.AddAutoMapper(typeof(ParkyMappings));
