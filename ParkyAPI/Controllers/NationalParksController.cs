@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 
 namespace ParkyAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiExplorerSettings(GroupName = "ParkyOpenAPISpecNP")]
+    [Route("api/v{version:apiVersion}/nationalpark")]
+    //[Route("api/[controller]")]
+    //[ApiExplorerSettings(GroupName = "ParkyOpenAPISpecNP")]
     [ApiController]
 
     //400 badrequest may response of all method
@@ -117,7 +118,10 @@ namespace ParkyAPI.Controllers
             }
             //change for automatic return add value with call GetNationalPark api
             //return Ok();
-            return CreatedAtRoute("GetNationalPark", new { nationalParkId = nationalparkObj.Id }, nationalparkObj);
+            //return CreatedAtRoute("GetNationalPark", new { nationalParkId = nationalparkObj.Id }, nationalparkObj);
+            //Change for Api Version lost roue
+            return CreatedAtRoute("GetNationalPark", new { Version = HttpContext.GetRequestedApiVersion().ToString(),
+                            nationalParkId = nationalparkObj.Id }, nationalparkObj);
         }
 
         [HttpPatch("{nationalParkId:int}", Name = "UpdateNationalPark")]
