@@ -49,6 +49,29 @@ namespace ParkyAPI.Controllers
         }
 
 
+        /// <summary>
+        /// Get Individual trail
+        /// </summary>
+        /// <param name="trailId">The Id of trail</param>
+        /// <returns></returns>
+        [HttpGet("{trailId:int}",  Name = "GetTrail")]
+        [ProducesResponseType(200, Type = typeof(TrailDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound )]
+        [ProducesDefaultResponseType]
+        public IActionResult GetTrail(int trailId)
+        {
+            var obj = _trailRepo.GetTrail(trailId);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            var objDto = _mapper.Map<TrailDto>(obj);
+            return Ok(objDto);
+        }
+
+
+        //Used this code for add action name below nationalParkId in api call
+        //becuse confilct to GetTrail api with trailId
         [HttpGet("[action]/{nationalParkId:int}")]
         [ProducesResponseType(200, Type = typeof(TrailDto))]
         [ProducesResponseType(404)]
@@ -69,27 +92,6 @@ namespace ParkyAPI.Controllers
 
             return Ok(objDto);
 
-        }
-
-
-        /// <summary>
-        /// Get Individual trail
-        /// </summary>
-        /// <param name="trailId">The Id of trail</param>
-        /// <returns></returns>
-        [HttpGet("{trailId:int}",  Name = "GetTrail")]
-        [ProducesResponseType(200, Type = typeof(TrailDto))]
-        [ProducesResponseType(StatusCodes.Status404NotFound )]
-        [ProducesDefaultResponseType]
-        public IActionResult GetTrail(int trailId)
-        {
-            var obj = _trailRepo.GetTrail(trailId);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            var objDto = _mapper.Map<TrailDto>(obj);
-            return Ok(objDto);
         }
 
         [HttpPost]
