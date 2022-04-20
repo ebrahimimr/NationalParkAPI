@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace ParkyAPI.Controllers
 {
     [Route("api/[controller]")]
+    [ApiExplorerSettings(GroupName = "ParkyOpenAPISpecTrails")]
     [ApiController]
 
     //400 badrequest may response of all method
