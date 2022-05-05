@@ -4,6 +4,7 @@ using ParkyWeb.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ParkyWeb.Controllers
@@ -22,7 +23,7 @@ namespace ParkyWeb.Controllers
         }
         public async Task<IActionResult> GetAllNationalPark()
         {
-             return Json(new { date = await _npRepo.GetAllAsync(SD.NationalParkAPIPath) });
+            return Json(new { date = await _npRepo.GetAllAsync(SD.NationalParkAPIPath) });
         }
     }
 }
