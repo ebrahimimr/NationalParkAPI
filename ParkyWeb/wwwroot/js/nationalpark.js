@@ -4,8 +4,6 @@ $(document).ready(function () {
     loadDataTable();
 });
 
-
-
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": {
@@ -34,24 +32,6 @@ function loadDataTable() {
     });
 }
 
-
-//function loadDataTable() {
-//    dataTable = $('#tblData').DataTable({
-//        ajax: {
-//            url: '/nationalParks/GetAllNationalPark',
-//            type: 'GET',
-//            datatype: 'JSON',
-//            dataSrc: 'date'
-//        },
-//        "columns": [
-//            { data: 'name' },
-//            { data: 'state'}
-//        ]
-//    });
-//}
-
-
-
 function Delete(url) {
     swal({
         title: "Are you sure you want to Delete?",
@@ -77,3 +57,21 @@ function Delete(url) {
         }
     });
 }
+
+//function loadDataTable() {
+//    dataTable = $('#tblData').DataTable({
+//        ajax: {
+//            url: '/nationalParks/GetAllNationalPark',
+//            type: 'GET',
+//            datatype: 'JSON',
+//            dataSrc: 'date'
+//        },
+//        "columns": [
+//            { data: 'name' },
+//            { data: 'state'}
+//        ]
+//    });
+//}
+
+
+
