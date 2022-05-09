@@ -50,13 +50,13 @@
                 </div>
                 <div class="col-8">
                     @{
-                        var dateEST = "";
+                        var dateEst = "";
                         if (Model.Id != 0)
                         {
-                            dateEST = Model.Established.ToShortDateString();
+                            dateEst = Model.Established.ToShortDateString();
                         }
                     }
-                    <input id="datepicker" asp-for="@Model.Established" type="text" value="@dateEST" class="form-control"></input>
+                    <input id="datepicker" value="@dateEst" type="text" asp-for="@Model.Established" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
@@ -81,14 +81,14 @@
     </div>
 </form>
 
-@section scripts{ 
-<script>
-    $(function () {
-        $("datepicker").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "1500:2022"
-        });
-    });
-</script>
+@section scripts{
+    <script>
+        $(function () {
+            $('#datepicker').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1500:2020"
+            });
+        })
+    </script>
 }
