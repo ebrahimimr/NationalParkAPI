@@ -1,9 +1,7 @@
 ﻿@model ParkyWeb.Models.ViewModel.IndexVM
 
-
 <div class="container">
     <div class="row pb-4 backgroundWhite">
-
         @foreach (var nationalPark in Model.NationalParkList)
         {
             <div class="container backgroundWhite pb-4">
@@ -46,8 +44,6 @@
                                                             <td>@trails.Difficulty</td>
                                                         </tr>
                                                     }
-
-
                                                 </table>
                                             }
                                             else
@@ -63,8 +59,6 @@
                                         var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
                                         <img src="@imgSrc" class="card-img-top p-2 rounded" width="100%" />
                                     }
-
-
                                 </div>
                             </div>
                         </div>
